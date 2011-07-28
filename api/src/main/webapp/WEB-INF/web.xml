@@ -8,8 +8,25 @@
     <servlet-name>Hello</servlet-name>
     <servlet-class>com.cisco.api.HelloServlet</servlet-class>
   </servlet>
+    <servlet>
+        <servlet-name>jersey</servlet-name>
+        <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+        <init-param>
+            <param-name>com.sun.jersey.config.property.packages</param-name>
+            <param-value>com.cisco.api</param-value>
+        </init-param>
+        <init-param>
+            <param-name>com.sun.jersey.api.json.POJOMappingFeature</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </servlet>
+
   <servlet-mapping>
     <servlet-name>Hello</servlet-name>
     <url-pattern>/hello/*</url-pattern>
   </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>jersey</servlet-name>
+        <url-pattern>/api/*</url-pattern>
+    </servlet-mapping>
 </web-app>
